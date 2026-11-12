@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0a2a20">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Timba</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <section id="s-nombre" class="pantalla">
+    <h1 class="marca">Timba</h1>
+    <p class="sub">Treinta y uno, a nuestra manera</p>
+    <input id="nombre" maxlength="16" placeholder="Tu nombre" autocomplete="nickname">
+    <button id="b-entrar" class="btn oro grande">Entrar al salón</button>
+  </section>
+
+  <section id="s-salon" class="pantalla" hidden>
+    <header class="barra"><h2>Salón</h2><span id="quien"></span></header>
+    <div id="mesas"></div>
+  </section>
+
+  <section id="s-espera" class="pantalla" hidden>
+    <header class="barra"><h2 id="esp-titulo">Mesa</h2><button id="b-salir1" class="btn mini">Salir</button></header>
+    <div id="esp-sillas"></div>
+    <div id="esp-cfg" hidden>
+      <label>Vidas <input id="c-vidas" type="number" min="1" max="10"></label>
+      <label>Sillas <input id="c-max" type="number" min="2" max="8"></label>
+      <label>Bots <input id="c-bots" type="number" min="0" max="7"></label>
+      <label>Nivel
+        <select id="c-nivel"><option value="facil">Fácil</option><option value="normal">Normal</option><option value="dificil">Difícil</option></select>
+      </label>
+      <label class="fila"><input id="c-trio" type="checkbox"> Trío = 30,5</label>
+    </div>
+    <button id="b-iniciar" class="btn oro grande" hidden>Empezar partida</button>
+    <p id="esp-msg" class="sub"></p>
+  </section>
+
+  <section id="s-juego" class="pantalla" hidden>
+    <header id="j-top">
+      <button id="b-menu" class="btn mini" aria-label="Menú">☰</button>
+      <span id="j-info"></span>
+      <span id="j-vidas-yo"></span>
+    </header>
+    <div id="rivales"></div>
+    <div id="centro">
+      <button id="mazo" class="pila" aria-label="Robar del mazo"><div class="dorso"></div><small id="mazo-n"></small></button>
+      <div id="msg"></div>
+      <button id="descarte" class="pila" aria-label="Coger del descarte"><div id="desc-carta"></div><small>Descarte</small></button>
+    </div>
+    <div id="acciones"></div>
+    <div id="mi-puntos"></div>
+    <div id="mano"></div>
+  </section>
+
+  <div id="banner" hidden></div>
+  <div id="resultado" hidden></div>
+  <div id="volver" hidden>
+    <p>Tu silla te está esperando</p>
+    <button id="b-volver" class="btn oro grande">VOLVER AL JUEGO</button>
+  </div>
+  <div id="menu" hidden>
+    <button id="o-sonido" class="btn">Sonido: sí</button>
+    <button id="o-anim" class="btn">Animaciones: sí</button>
+    <button id="o-salir" class="btn">Salir de la mesa</button>
+    <button id="o-cerrar" class="btn oro">Cerrar</button>
+  </div>
+  <div id="toast" hidden></div>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

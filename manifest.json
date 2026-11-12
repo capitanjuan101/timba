@@ -1,0 +1,14 @@
+{
+  "name": "Timba",
+  "short_name": "Timba",
+  "description": "Juego de cartas multijugador (variante del Treinta y Uno)",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#082a20",
+  "theme_color": "#0a2a20",
+  "icons": [
+    { "src": "icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "favicon.png", "sizes": "64x64", "type": "image/png" }
+  ]
+}
