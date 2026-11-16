@@ -13,7 +13,10 @@ const RESERVA_SILLA = 5 * 60 * 1000; // tiempo que se guarda la silla a un desco
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-app.use(express.static('public'));
+const fs = require('fs');
+const path = require('path');
+const carpeta = fs.existsSync(path.join(__dirname, 'public', 'index.html')) ? path.join(__dirname, 'public') : __dirname;
+app.use(express.static(carpeta));
 
 const sesiones = new Map(); // token -> { token, nombre, socketId, mesa, silla }
 const mesas = Array.from({ length: NUM_MESAS }, (_, i) => ({
